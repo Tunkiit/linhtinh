@@ -621,10 +621,10 @@
       if (selectedRestIndex !== '' && chosenDish.restaurants && chosenDish.restaurants[selectedRestIndex]) {
         const restaurant = chosenDish.restaurants[selectedRestIndex];
         const rawLink = (restaurant.link || '').trim();
-        const isMapLink = /^(https?:\\/\\/)?(www\\.)?(google\\.com\\/maps|maps\\.google\\.com|maps\\.app\\.goo\\.gl|goo\\.gl\\/maps)/i.test(rawLink);
+        const isMapLink = /^(https?:\/\/)?(www\.)?(google\.com\/maps|maps\.google\.com|maps\.app\.goo\.gl|goo\.gl\/maps)/i.test(rawLink);
 
         if (isMapLink) {
-          const mapLink = /^https?:\\/\\//i.test(rawLink) ? rawLink : `https://${rawLink}`;
+          const mapLink = /^https?:\/\//i.test(rawLink) ? rawLink : `https://${rawLink}`;
           window.open(mapLink, '_blank', 'noopener');
         } else {
           // Link trống hoặc sai định dạng: tìm theo tên quán
