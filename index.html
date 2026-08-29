@@ -60,12 +60,15 @@
       box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
     }
     .form-input {
-      background: rgba(6, 22, 24, 0.9) !important;
-      border: 1px solid rgba(167, 243, 208, 0.45) !important;
+      background: #071b1d !important;
+      border: 1px solid #6ee7b7 !important;
       color: #ffffff !important;
-      caret-color: #6ee7b7;
+      caret-color: #a7f3d0;
+      opacity: 1 !important;
     }
-    .form-input::placeholder { color: rgba(209, 250, 229, 0.6); }
+    .form-input::placeholder { color: #b7d8cc !important; opacity: 1; }
+    .form-label { color: #d1fae5 !important; font-weight: 700; }
+    .form-help { color: #a7f3d0 !important; }
     .form-input:focus {
       border-color: #6ee7b7 !important;
       box-shadow: 0 0 0 3px rgba(110, 231, 183, 0.2);
@@ -207,14 +210,14 @@
       
       <div class="space-y-4">
         <div>
-          <label class="text-sm text-[#71767b] mb-2 block">Tên quán:</label>
+          <label class="form-label text-sm mb-2 block">Tên quán:</label>
           <input type="text" id="restaurantNameInput" placeholder="VD: Cơm Tấm Bà Chiểu" class="form-input w-full rounded-lg px-4 py-3 text-sm transition-all">
         </div>
         
         <div>
-          <label class="text-sm text-[#71767b] mb-2 block">Link Google Maps (tùy chọn):</label>
+          <label class="form-label text-sm mb-2 block">Link Google Maps (tùy chọn):</label>
           <input type="text" id="restaurantLinkInput" placeholder="https://maps.app.goo.gl/..." class="form-input w-full rounded-lg px-4 py-3 text-sm transition-all">
-          <p class="text-xs text-[#71767b] mt-1">💡 Để trống nếu chưa có link</p>
+          <p class="form-help text-xs mt-1">💡 Để trống nếu chưa có link</p>
         </div>
       </div>
 
