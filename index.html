@@ -322,15 +322,12 @@
       { name: "Pizza", restaurants: [] },
       { name: "Mì Cay", restaurants: [] },
       { name: "Đồ Hàn", restaurants: [] },
-      { name: "Cơm Bình Dân", restaurants: [] },
       { name: "Hủ Tiếu", restaurants: [] },
       { name: "Bún Chả / Bún Chả Cá", restaurants: [
         { name: "Bún chả cá Bà Phiến", link: "https://www.google.com/maps/search/?api=1&query=Bún+chả+cá+Bà+Phiến+63+Lê+Hồng+Phong+Đà+Nẵng" },
         { name: "Bún chả cá Cô Lan", link: "https://www.google.com/maps/search/?api=1&query=Bún+chả+cá+Cô+Lan+424+Hùng+Vương+Đà+Nẵng" }
       ] },
       { name: "Cao Lầu", restaurants: [] },
-      { name: "Cơm Gà", restaurants: [] },
-      { name: "Cơm Chiên", restaurants: [] },
       { name: "Cháo Gà", restaurants: [] },
       { name: "Nui Xào / Mì Xào", restaurants: [] },
       { name: "Sushi", restaurants: [] },
@@ -417,7 +414,10 @@
           'Phở Bò / Gà': 'Phở',
           'Gà Rán / Pizza': 'Gà Rán',
           'Mì Cay Đồ Hàn': 'Mì Cay',
-          'Hủ Tiếu / Bánh Canh': 'Hủ Tiếu'
+          'Hủ Tiếu / Bánh Canh': 'Hủ Tiếu',
+          'Cơm Bình Dân': 'Cháo & Cơm',
+          'Cơm Gà': 'Cháo & Cơm',
+          'Cơm Chiên': 'Cháo & Cơm'
         };
         const savedName = alias[saved.name] || saved.name;
         const current = items.find(item => item.name === savedName);
