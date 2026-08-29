@@ -11,24 +11,19 @@
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Montserrat:wght@700;800;900&display=swap');
     body {
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(135deg, #0c2340 0%, #1a5276 30%, #2471a3 60%, #1abc9c 100%);
+      background: linear-gradient(135deg, #f5f9ff 0%, #e8f0fe 50%, #f0f4ff 100%);
       background-size: 200% 200%;
       animation: backgroundFlow 20s ease infinite;
-      color: #e7e9ea;
+      color: #1e293b;
       min-height: 100vh;
     }
     @keyframes backgroundFlow {
       0%, 100% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
     }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
     .glass-card {
-      background: rgba(9, 25, 49, 0.55);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(43, 92, 230, 0.12);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
     }
@@ -37,55 +32,55 @@
       height: 0;
       border-left: 20px solid transparent;
       border-right: 20px solid transparent;
-      border-top: 36px solid #10b981;
-      filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.6));
+      border-top: 36px solid #2b5ce6;
+      filter: drop-shadow(0 4px 12px rgba(43, 92, 230, 0.4));
     }
     .custom-scrollbar::-webkit-scrollbar {
         width: 6px;
     }
     .custom-scrollbar::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.05);
         border-radius: 10px;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(0, 0, 0, 0.15);
         border-radius: 10px;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: rgba(255, 255, 255, 0.5);
+        background: rgba(0, 0, 0, 0.25);
     }
     .x-button {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      background: linear-gradient(135deg, #2b5ce6 0%, #1a46c9 100%);
       transition: all 0.3s;
     }
     .x-button:hover {
-      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      background: linear-gradient(135deg, #1a46c9 0%, #1437a8 100%);
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+      box-shadow: 0 10px 25px rgba(43, 92, 230, 0.3);
     }
     .form-input {
-      background: #071b1d !important;
-      border: 1px solid #6ee7b7 !important;
-      color: #ffffff !important;
-      caret-color: #a7f3d0;
+      background: #ffffff !important;
+      border: 1px solid #d1d5db !important;
+      color: #1e293b !important;
+      caret-color: #2b5ce6;
       opacity: 1 !important;
     }
-    .form-input::placeholder { color: #b7d8cc !important; opacity: 1; }
-    .form-label { color: #d1fae5 !important; font-weight: 700; }
-    .form-help { color: #a7f3d0 !important; }
+    .form-input::placeholder { color: #9ca3af !important; opacity: 1; }
+    .form-label { color: #1e293b !important; font-weight: 700; }
+    .form-help { color: #64748b !important; }
     .form-input:focus {
-      border-color: #6ee7b7 !important;
-      box-shadow: 0 0 0 3px rgba(110, 231, 183, 0.2);
+      border-color: #2b5ce6 !important;
+      box-shadow: 0 0 0 3px rgba(43, 92, 230, 0.15);
       outline: none;
     }
     .form-select {
-      background-color: #061618 !important;
-      color: #ffffff !important;
-      border-color: rgba(167, 243, 208, 0.45) !important;
+      background-color: #ffffff !important;
+      color: #1e293b !important;
+      border-color: #d1d5db !important;
     }
     .form-select:focus {
-      border-color: #6ee7b7 !important;
-      box-shadow: 0 0 0 3px rgba(110, 231, 183, 0.2);
+      border-color: #2b5ce6 !important;
+      box-shadow: 0 0 0 3px rgba(43, 92, 230, 0.15);
       outline: none;
     }
     
@@ -127,13 +122,13 @@
 
   <!-- Header -->
   <header class="text-center max-w-md w-full mb-4">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1d9bf0]/10 border border-[#1d9bf0]/30 text-[#1d9bf0] text-xs font-semibold mb-2">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2b5ce6]/10 border border-[#2b5ce6]/30 text-[#2b5ce6] text-xs font-semibold mb-2">
       <i class="fa-solid fa-utensils"></i> Giải quyết nỗi lo "Tối nay ăn gì?"
     </div>
-    <h1 class="text-4xl font-extrabold text-white">
+    <h1 class="text-4xl font-extrabold text-[#1e293b]">
       Hôm Nay Ăn Gì?
     </h1>
-    <p class="text-[#71767b] text-sm mt-1 font-medium">Bấm quay ➔ Trúng món ➔ Đi ăn thôi!</p>
+    <p class="text-[#64748b] text-sm mt-1 font-medium">Bấm quay ➔ Trúng món ➔ Đi ăn thôi!</p>
   </header>
 
   <!-- Main Container -->
@@ -146,7 +141,7 @@
         <div class="pointer absolute -top-4 z-20"></div>
         
         <!-- Canvas Wheel -->
-        <canvas id="wheelCanvas" width="400" height="400" class="rounded-full transition-all" style="filter: drop-shadow(0 10px 30px rgba(14, 165, 233, 0.35));"></canvas>
+        <canvas id="wheelCanvas" width="400" height="400" class="rounded-full transition-all" style="filter: drop-shadow(0 10px 30px rgba(43, 92, 230, 0.25));"></canvas>
       </div>
 
       <!-- Spin Button -->
@@ -155,15 +150,15 @@
       </button>
       
       <!-- History Button -->
-      <button onclick="openHistoryModal()" class="mt-3 px-6 py-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold text-sm rounded-full transition-all flex items-center justify-center gap-2">
+      <button onclick="openHistoryModal()" class="mt-3 px-6 py-2 bg-[#2b5ce6]/10 hover:bg-[#2b5ce6]/20 border border-[#2b5ce6]/30 text-[#1e293b] font-semibold text-sm rounded-full transition-all flex items-center justify-center gap-2">
         <i class="fa-solid fa-clock-rotate-left"></i> Lịch sử (<span id="historyCount">0</span>)
       </button>
 
-      <!-- No-repeat toggle -->
-      <label class="mt-2 flex items-center gap-2 text-xs text-[#71767b] cursor-pointer select-none">
-        <input type="checkbox" id="noRepeatToggle" class="accent-[#0ea5e9] w-4 h-4 cursor-pointer" onchange="toggleNoRepeat()">
+    <!-- No-repeat toggle -->
+      <label class="mt-2 flex items-center gap-2 text-xs text-[#64748b] cursor-pointer select-none">
+        <input type="checkbox" id="noRepeatToggle" class="accent-[#2b5ce6] w-4 h-4 cursor-pointer" onchange="toggleNoRepeat()">
         <span><i class="fa-solid fa-rotate-left mr-1"></i> Không lặp 3 ngày</span>
-        <span id="noRepeatInfo" class="text-[#0ea5e9] font-semibold hidden"></span>
+        <span id="noRepeatInfo" class="text-[#2b5ce6] font-semibold hidden"></span>
       </label>
     </section>
 
@@ -171,10 +166,10 @@
     <section class="glass-card rounded-2xl p-8 flex flex-col">
       <div>
         <div class="flex justify-between items-center mb-4">
-          <h2 class="text-lg font-bold text-white flex items-center gap-2">
-            <i class="fa-solid fa-list-check text-[#1d9bf0]"></i> Danh sách món (<span id="countSpan">0</span>)
+          <h2 class="text-lg font-bold text-[#1e293b] flex items-center gap-2">
+            <i class="fa-solid fa-list-check text-[#2b5ce6]"></i> Danh sách món (<span id="countSpan">0</span>)
           </h2>
-          <button onclick="resetDefaults()" class="text-xs text-[#71767b] hover:text-[#1d9bf0] transition-colors font-semibold">
+          <button onclick="resetDefaults()" class="text-xs text-[#64748b] hover:text-[#2b5ce6] transition-colors font-semibold">
             <i class="fa-solid fa-rotate-left"></i> Mặc định
           </button>
         </div>
@@ -193,7 +188,7 @@
         </div>
       </div>
 
-      <div class="mt-6 pt-4 border-t border-[#2f3336] text-xs text-[#71767b] text-center font-medium">
+      <div class="mt-6 pt-4 border-t border-[#d1d5db] text-xs text-[#64748b] text-center font-medium">
         💡 Đã chọn sẵn các món ăn tối phổ biến. Thêm/bớt tùy thích!
       </div>
     </section>
@@ -202,18 +197,18 @@
 
   <!-- Modal Result -->
   <div id="resultModal" class="fixed inset-0 bg-[#5b7083]/40 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
-    <div class="glass-card max-w-md w-full rounded-2xl p-6 text-center border-[#2f3336]">
-      <div class="w-16 h-16 bg-[#1d9bf0] text-white rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+    <div class="glass-card max-w-md w-full rounded-2xl p-6 text-center border border-[#2b5ce6]/10">
+      <div class="w-16 h-16 bg-[#2b5ce6] text-white rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
         <i class="fa-solid fa-champagne-glasses"></i>
       </div>
-      <p class="text-[#71767b] text-sm font-semibold uppercase tracking-wider mb-1">Quyết định tối nay là:</p>
-      <h3 id="resultFood" class="text-4xl font-black text-white mb-4">
+      <p class="text-[#64748b] text-sm font-semibold uppercase tracking-wider mb-1">Quyết định tối nay là:</p>
+      <h3 id="resultFood" class="text-4xl font-black text-[#1e293b] mb-4">
         Cơm Tấm
       </h3>
 
       <!-- Restaurant Selection -->
       <div id="restaurantSelection" class="mb-6 hidden">
-        <p class="text-[#71767b] text-sm mb-3">Chọn quán bạn muốn đi:</p>
+        <p class="text-[#64748b] text-sm mb-3">Chọn quán bạn muốn đi:</p>
         <select id="restaurantSelect" class="form-select w-full border rounded-lg px-4 py-3 transition-all mb-3">
           <option value="">-- Chọn quán --</option>
         </select>
@@ -223,10 +218,10 @@
         <button id="openMapBtn" onclick="openSelectedMap()" class="w-full x-button text-white font-bold py-3.5 rounded-full transition-all shadow-lg flex items-center justify-center gap-2 text-sm">
           <i class="fa-solid fa-map-location-dot"></i> <span id="mapBtnText">Mở Google Maps</span>
         </button>
-        <button id="searchOtherBtn" onclick="searchNearby()" class="w-full border border-[#2f3336] hover:bg-[#181a1d] text-[#1d9bf0] font-semibold py-3 rounded-full transition-all text-sm hidden">
+        <button id="searchOtherBtn" onclick="searchNearby()" class="w-full border border-[#d1d5db] hover:bg-[#2b5ce6]/5 text-[#2b5ce6] font-semibold py-3 rounded-full transition-all text-sm hidden">
           <i class="fa-solid fa-magnifying-glass"></i> Tìm quán khác gần đây
         </button>
-        <button onclick="closeModal()" class="w-full border border-[#2f3336] hover:bg-[#181a1d] text-white font-semibold py-3 rounded-full transition-all text-sm">
+        <button onclick="closeModal()" class="w-full border border-[#d1d5db] hover:bg-[#2b5ce6]/5 text-[#1e293b] font-semibold py-3 rounded-full transition-all text-sm">
           Quay lại chọn món khác
         </button>
       </div>
@@ -235,9 +230,9 @@
 
   <!-- Add Restaurant Modal -->
   <div id="addRestaurantModal" class="fixed inset-0 bg-[#5b7083]/40 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
-    <div class="glass-card max-w-md w-full rounded-2xl p-6 border-[#2f3336]">
-      <h3 class="text-xl font-bold text-white mb-4">
-        <i class="fa-solid fa-store text-[#1d9bf0]"></i> Thêm quán cho "<span id="addRestaurantDishName"></span>"
+    <div class="glass-card max-w-md w-full rounded-2xl p-6 border border-[#2b5ce6]/10">
+      <h3 class="text-xl font-bold text-[#1e293b] mb-4">
+        <i class="fa-solid fa-store text-[#2b5ce6]"></i> Thêm quán cho "<span id="addRestaurantDishName"></span>"
       </h3>
       
       <div class="space-y-4">
@@ -257,7 +252,7 @@
         <button onclick="saveRestaurant()" class="flex-1 x-button text-white font-bold py-3 rounded-lg transition-all">
           <i class="fa-solid fa-check"></i> Lưu
         </button>
-        <button onclick="closeAddRestaurantModal()" class="flex-1 border border-[#2f3336] hover:bg-[#181a1d] text-white font-semibold py-3 rounded-lg transition-all">
+        <button onclick="closeAddRestaurantModal()" class="flex-1 border border-[#d1d5db] hover:bg-[#2b5ce6]/5 text-[#1e293b] font-semibold py-3 rounded-lg transition-all">
           Hủy
         </button>
       </div>
@@ -266,12 +261,12 @@
 
   <!-- History Modal -->
   <div id="historyModal" class="fixed inset-0 bg-[#5b7083]/40 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
-    <div class="glass-card max-w-md w-full rounded-2xl p-6 border-[#2f3336]">
+    <div class="glass-card max-w-md w-full rounded-2xl p-6 border border-[#2b5ce6]/10">
       <div class="flex justify-between items-center mb-4">
-        <h3 class="text-xl font-bold text-white">
-          <i class="fa-solid fa-clock-rotate-left text-[#10b981]"></i> Lịch sử món đã ăn
+        <h3 class="text-xl font-bold text-[#1e293b]">
+          <i class="fa-solid fa-clock-rotate-left text-[#ff7a45]"></i> Lịch sử món đã ăn
         </h3>
-        <button onclick="closeHistoryModal()" class="text-white/70 hover:text-white transition-colors">
+        <button onclick="closeHistoryModal()" class="text-[#64748b] hover:text-[#1e293b] transition-colors">
           <i class="fa-solid fa-xmark text-xl"></i>
         </button>
       </div>
@@ -280,11 +275,11 @@
         <!-- Dynamically populated -->
       </div>
 
-      <div class="mt-4 pt-4 border-t border-white/20 flex gap-3">
-        <button onclick="clearHistory()" class="flex-1 border border-red-500/50 hover:bg-red-500/20 text-red-400 font-semibold py-2.5 rounded-lg transition-all text-sm">
+      <div class="mt-4 pt-4 border-t border-[#d1d5db] flex gap-3">
+        <button onclick="clearHistory()" class="flex-1 border border-[#ff7a45]/50 hover:bg-[#ff7a45]/10 text-[#ff7a45] font-semibold py-2.5 rounded-lg transition-all text-sm">
           <i class="fa-solid fa-trash-can"></i> Xóa lịch sử
         </button>
-        <button onclick="closeHistoryModal()" class="flex-1 border border-white/30 hover:bg-white/10 text-white font-semibold py-2.5 rounded-lg transition-all text-sm">
+        <button onclick="closeHistoryModal()" class="flex-1 border border-[#d1d5db] hover:bg-[#2b5ce6]/5 text-[#1e293b] font-semibold py-2.5 rounded-lg transition-all text-sm">
           Đóng
         </button>
       </div>
@@ -293,7 +288,7 @@
 
   <!-- Background music -->
   <audio id="bgm" loop preload="none" src="background-music.wav"></audio>
-  <button id="bgmBtn" onclick="toggleBgm()" class="fixed bottom-5 right-5 w-12 h-12 rounded-full glass-card text-white text-lg z-40 flex items-center justify-center shadow-lg">
+  <button id="bgmBtn" onclick="toggleBgm()" class="fixed bottom-5 right-5 w-12 h-12 rounded-full glass-card text-[#2b5ce6] text-lg z-40 flex items-center justify-center shadow-lg">
     <i id="bgmIcon" class="fa-solid fa-volume-xmark"></i>
   </button>
 
@@ -447,16 +442,16 @@
     let isSpinning = false;
     let currentAngle = 0;
 
-    // Liquid pastel palette — hài hòa với nền ocean
+    // Pastel palette — hài hòa với nền pastel light
     const gradientColors = [
-      ['#0ea5e9', '#38bdf8'],
-      ['#14b8a6', '#2dd4bf'],
-      ['#6366f1', '#818cf8'],
+      ['#2b5ce6', '#5b8def'],
+      ['#8b5cf6', '#a78bfa'],
       ['#f43f5e', '#fb7185'],
+      ['#ff7a45', '#ffa17a'],
       ['#f59e0b', '#fbbf24'],
       ['#10b981', '#34d399'],
-      ['#8b5cf6', '#a78bfa'],
-      ['#06b6d4', '#22d3ee']
+      ['#06b6d4', '#22d3ee'],
+      ['#ec4899', '#f472b6']
     ];
 
     function drawWheel() {
@@ -497,7 +492,7 @@
         ctx.fill();
         
         ctx.lineWidth = 2;
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
         ctx.stroke();
 
         ctx.save();
@@ -506,8 +501,10 @@
         ctx.textAlign = 'right';
         ctx.fillStyle = '#ffffff';
         ctx.font = 'bold 16px Quicksand';
-        ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
-        ctx.shadowBlur = 8;
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
+        ctx.shadowBlur = 6;
+        ctx.shadowOffsetX = 1;
+        ctx.shadowOffsetY = 1;
         
         let text = items[i].name;
         if (text.length > 15) text = text.substring(0, 13) + '...';
@@ -518,10 +515,10 @@
 
       ctx.beginPath();
       ctx.arc(radius, radius, 35, 0, 2 * Math.PI);
-      ctx.fillStyle = '#0c2340';
+      ctx.fillStyle = '#ffffff';
       ctx.fill();
       ctx.lineWidth = 4;
-      ctx.strokeStyle = '#0ea5e9';
+      ctx.strokeStyle = '#2b5ce6';
       ctx.stroke();
 
       // Liquid highlight — lớp bóng mềm phía trên vòng quay
@@ -530,15 +527,15 @@
       ctx.arc(radius, radius, radius - 8, 0, 2 * Math.PI);
       ctx.clip();
       const shine = ctx.createRadialGradient(radius - radius * 0.35, radius - radius * 0.35, 10, radius, radius, radius);
-      shine.addColorStop(0, 'rgba(255, 255, 255, 0.25)');
+      shine.addColorStop(0, 'rgba(255, 255, 255, 0.35)');
       shine.addColorStop(0.5, 'rgba(255, 255, 255, 0)');
-      shine.addColorStop(1, 'rgba(0, 0, 0, 0.15)');
+      shine.addColorStop(1, 'rgba(0, 0, 0, 0.08)');
       ctx.fillStyle = shine;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.restore();
 
       // Center label: stable across browsers (emoji can render off-center)
-      ctx.fillStyle = '#ffffff';
+      ctx.fillStyle = '#1e293b';
       ctx.font = '700 13px Quicksand';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
@@ -552,31 +549,31 @@
 
       items.forEach((item, index) => {
         const div = document.createElement('div');
-        div.className = 'border border-[#2f3336] rounded-lg overflow-hidden';
+        div.className = 'border border-[#d1d5db] rounded-lg overflow-hidden';
         
         const restaurantCount = item.restaurants ? item.restaurants.length : 0;
         
         div.innerHTML = `
-          <div class="flex items-center justify-between px-4 py-3 hover:bg-[#181a1d] transition-all">
+          <div class="flex items-center justify-between px-4 py-3 hover:bg-[#f1f5f9] transition-all">
             <div class="flex-1">
-              <div class="font-semibold text-white">${item.name}</div>
-              ${restaurantCount > 0 ? `<div class="text-xs text-[#71767b] mt-1"><i class="fa-solid fa-store"></i> ${restaurantCount} quán đã lưu</div>` : ''}
+              <div class="font-semibold text-[#1e293b]">${item.name}</div>
+              ${restaurantCount > 0 ? `<div class="text-xs text-[#64748b] mt-1"><i class="fa-solid fa-store"></i> ${restaurantCount} quán đã lưu</div>` : ''}
             </div>
             <div class="flex items-center gap-2">
-              <button onclick="openAddRestaurantModal(${index})" class="text-[#1d9bf0] hover:text-[#1a8cd8] p-2 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center" title="Thêm quán">
+              <button onclick="openAddRestaurantModal(${index})" class="text-[#2b5ce6] hover:text-[#1a46c9] p-2 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center" title="Thêm quán">
                 <i class="fa-solid fa-plus"></i>
               </button>
-              <button onclick="removeItem(${index})" class="text-[#71767b] hover:text-[#f91880] p-2 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center" title="Xóa món">
+              <button onclick="removeItem(${index})" class="text-[#64748b] hover:text-[#ec4899] p-2 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center" title="Xóa món">
                 <i class="fa-solid fa-trash-can"></i>
               </button>
             </div>
           </div>
           ${restaurantCount > 0 ? `
-            <div class="border-t border-[#2f3336] px-4 py-2 bg-[#0d0f12]">
+            <div class="border-t border-[#e2e8f0] px-4 py-2 bg-[#f8fafc]">
               ${item.restaurants.map((rest, restIndex) => `
-                <div class="flex items-center justify-between py-2 text-sm text-[#71767b]">
-                  <span class="flex-1"><i class="fa-solid fa-location-dot text-[#1d9bf0]"></i> ${rest.name}</span>
-                  <button onclick="removeRestaurant(${index}, ${restIndex})" class="text-[#71767b] hover:text-[#f91880] p-1 transition-colors">
+                <div class="flex items-center justify-between py-2 text-sm text-[#64748b]">
+                  <span class="flex-1"><i class="fa-solid fa-location-dot text-[#2b5ce6]"></i> ${rest.name}</span>
+                  <button onclick="removeRestaurant(${index}, ${restIndex})" class="text-[#64748b] hover:text-[#ec4899] p-1 transition-colors">
                     <i class="fa-solid fa-xmark"></i>
                   </button>
                 </div>
@@ -811,7 +808,7 @@
         particleCount: 150,
         spread: 80,
         origin: { y: 0.6 },
-        colors: ['#1d9bf0', '#7856ff', '#f91880', '#ff7a00', '#00ba7c']
+        colors: ['#2b5ce6', '#8b5cf6', '#ff7a45', '#f59e0b', '#10b981']
       });
     }
 
@@ -852,8 +849,8 @@
     function openHistoryModal() {
       const container = document.getElementById('historyContainer');
       container.innerHTML = history.length
-        ? history.map(entry => `<div class="flex justify-between gap-3 border border-white/20 rounded-lg px-3 py-2"><span class="text-white">${entry.name}</span><span class="text-xs text-white/60">${new Date(entry.date).toLocaleString('vi-VN', { dateStyle: 'short', timeStyle: 'short' })}</span></div>`).join('')
-        : '<p class="text-center text-white/60 py-6">Chưa có món nào được quay.</p>';
+        ? history.map(entry => `<div class="flex justify-between gap-3 border border-[#e2e8f0] rounded-lg px-3 py-2"><span class="text-[#1e293b]">${entry.name}</span><span class="text-xs text-[#64748b]">${new Date(entry.date).toLocaleString('vi-VN', { dateStyle: 'short', timeStyle: 'short' })}</span></div>`).join('')
+        : '<p class="text-center text-[#64748b] py-6">Chưa có món nào được quay.</p>';
       document.getElementById('historyModal').classList.remove('hidden');
       document.getElementById('historyModal').classList.add('flex');
     }
