@@ -349,10 +349,6 @@
         { name: "Bánh xèo Bà Dưỡng", link: "https://www.google.com/maps/search/?api=1&query=Bánh+xèo+Bà+Dưỡng+280+Hoàng+Diệu+Đà+Nẵng" },
         { name: "Quán Hồng Nguyệt", link: "https://www.google.com/maps/search/?api=1&query=Quán+Hồng+Nguyệt+125+Hoàng+Diệu+Đà+Nẵng" }
       ] },
-      { name: "Bún Chả Cá", restaurants: [
-        { name: "Bún chả cá Bà Phiến", link: "https://www.google.com/maps/search/?api=1&query=Bún+chả+cá+Bà+Phiến+63+Lê+Hồng+Phong+Đà+Nẵng" },
-        { name: "Bún chả cá Cô Lan", link: "https://www.google.com/maps/search/?api=1&query=Bún+chả+cá+Cô+Lan+424+Hùng+Vương+Đà+Nẵng" }
-      ] },
       { name: "Bún Riêu", restaurants: [
         { name: "Bún riêu Đào", link: "https://www.google.com/maps/search/?api=1&query=Bún+riêu+Đào+K10+Yên+Bái+Đà+Nẵng" }
       ] },
@@ -406,7 +402,19 @@
     let items = JSON.parse(JSON.stringify(defaultItems));
     if (Array.isArray(savedItems)) {
       savedItems.forEach(saved => {
-        const alias = { 'Bún Bò Huế': 'Bún Bò', 'Ốc & Ăn Vặt': 'Ăn Vặt', 'Bún Chả': 'Bún Chả / Bún Chả Cá', 'Bún Chả Cá': 'Bún Chả / Bún Chả Cá', 'Bánh Cuốn': 'Các Loại Bánh', 'Bánh Mì': 'Các Loại Bánh' };
+        const alias = {
+          'Bún Bò Huế': 'Bún Bò',
+          'Ốc & Ăn Vặt': 'Ăn Vặt',
+          'Bún Chả': 'Bún Chả / Bún Chả Cá',
+          'Bún Chả Cá': 'Bún Chả / Bún Chả Cá',
+          'Bánh Cuốn': 'Các Loại Bánh',
+          'Bánh Mì': 'Các Loại Bánh',
+          'Lẩu / Nướng': 'Lẩu',
+          'Phở Bò / Gà': 'Phở',
+          'Gà Rán / Pizza': 'Gà Rán',
+          'Mì Cay Đồ Hàn': 'Mì Cay',
+          'Hủ Tiếu / Bánh Canh': 'Hủ Tiếu'
+        };
         const savedName = alias[saved.name] || saved.name;
         const current = items.find(item => item.name === savedName);
         if (!current) {
