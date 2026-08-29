@@ -282,6 +282,12 @@
     </div>
   </div>
 
+  <!-- Background music -->
+  <audio id="bgm" loop preload="none" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"></audio>
+  <button id="bgmBtn" onclick="toggleBgm()" class="fixed bottom-5 right-5 w-12 h-12 rounded-full glass-card text-white text-lg z-40 flex items-center justify-center shadow-lg">
+    <i id="bgmIcon" class="fa-solid fa-volume-xmark"></i>
+  </button>
+
   <script>
     const defaultItems = [
       { name: "Cơm Tấm", restaurants: [] },
@@ -600,8 +606,28 @@
       renderList();
     }
 
+    // Background music: trình duyệt chặn autoplay, nên chỉ bật sau 1 thao tác bấm
+    const bgm = document.getElementById('bgm');
+    const bgmIcon = document.getElementById('bgmIcon');
+    let bgmOn = localStorage.getItem('bgm_on') === '1';
+    bgm.volume = 0.35;
+
+    function renderBgmIcon() {
+      bgmIcon.className = bgmOn ? 'fa-solid fa-volume-high' : 'fa-solid fa-volume-xmark';
+    }
+    function startBgm() { if (bgmOn) bgm.play().catch(() => {}); }
+    function stopBgm() { bgm.pause(); }
+    function toggleBgm() {
+      bgmOn = !bgmOn;
+      localStorage.setItem('bgm_on', bgmOn ? '1' : '0');
+      renderBgmIcon();
+      bgmOn ? startBgm() : stopBgm();
+    }
+    renderBgmIcon();
+
     function spinWheel() {
       if (isSpinning || items.length === 0) return;
+      startBgm(); // có gesture người dùng -> bật được nhạc nếu đang bật
       isSpinning = true;
 
       const spinIcon = document.getElementById('spinIcon');
