@@ -85,15 +85,36 @@
       outline: none;
     }
     
-    /* Mobile optimizations */
+    /* Responsive: prevent horizontal overflow on phones */
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     @media (max-width: 768px) {
+      body {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+      }
       .glass-card {
+        width: 100%;
+        max-width: 100%;
         padding: 20px !important;
       }
       #wheelCanvas {
-        width: 100% !important;
-        max-width: 320px !important;
+        display: block;
+        width: min(100%, 320px) !important;
+        max-width: 100% !important;
         height: auto !important;
+      }
+      #itemsContainer {
+        max-width: 100%;
+      }
+      input, select, button {
+        max-width: 100%;
       }
     }
   </style>
