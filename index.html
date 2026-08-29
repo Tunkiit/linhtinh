@@ -144,7 +144,7 @@
         <div class="pointer absolute -top-4 z-20"></div>
         
         <!-- Canvas Wheel -->
-        <canvas id="wheelCanvas" width="400" height="400" class="rounded-full transition-all" style="filter: drop-shadow(0 10px 30px rgba(29, 155, 240, 0.2));"></canvas>
+        <canvas id="wheelCanvas" width="400" height="400" class="rounded-full transition-all" style="filter: drop-shadow(0 10px 30px rgba(14, 165, 233, 0.35));"></canvas>
       </div>
 
       <!-- Spin Button -->
@@ -438,16 +438,16 @@
     let isSpinning = false;
     let currentAngle = 0;
 
-    // X-style gradient colors
+    // Liquid pastel palette — hài hòa với nền ocean
     const gradientColors = [
-      ['#1d9bf0', '#1a8cd8'],
-      ['#1a8cd8', '#1470b8'],
-      ['#7856ff', '#6a47e0'],
-      ['#f91880', '#d01060'],
-      ['#ff7a00', '#e06800'],
-      ['#00ba7c', '#009a68'],
-      ['#1d9bf0', '#0c7abf'],
-      ['#8b98a5', '#71767b']
+      ['#0ea5e9', '#38bdf8'],
+      ['#14b8a6', '#2dd4bf'],
+      ['#6366f1', '#818cf8'],
+      ['#f43f5e', '#fb7185'],
+      ['#f59e0b', '#fbbf24'],
+      ['#10b981', '#34d399'],
+      ['#8b5cf6', '#a78bfa'],
+      ['#06b6d4', '#22d3ee']
     ];
 
     function drawWheel() {
@@ -488,7 +488,7 @@
         ctx.fill();
         
         ctx.lineWidth = 2;
-        ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
         ctx.stroke();
 
         ctx.save();
@@ -509,11 +509,24 @@
 
       ctx.beginPath();
       ctx.arc(radius, radius, 35, 0, 2 * Math.PI);
-      ctx.fillStyle = '#000000';
+      ctx.fillStyle = '#0c2340';
       ctx.fill();
       ctx.lineWidth = 4;
-      ctx.strokeStyle = '#1d9bf0';
+      ctx.strokeStyle = '#0ea5e9';
       ctx.stroke();
+
+      // Liquid highlight — lớp bóng mềm phía trên vòng quay
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(radius, radius, radius - 8, 0, 2 * Math.PI);
+      ctx.clip();
+      const shine = ctx.createRadialGradient(radius - radius * 0.35, radius - radius * 0.35, 10, radius, radius, radius);
+      shine.addColorStop(0, 'rgba(255, 255, 255, 0.25)');
+      shine.addColorStop(0.5, 'rgba(255, 255, 255, 0)');
+      shine.addColorStop(1, 'rgba(0, 0, 0, 0.15)');
+      ctx.fillStyle = shine;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.restore();
 
       // Center label: stable across browsers (emoji can render off-center)
       ctx.fillStyle = '#ffffff';
