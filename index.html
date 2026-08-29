@@ -626,10 +626,11 @@
 
         if (isUrl) {
           const mapLink = /^https?:\/\//i.test(rawLink) ? rawLink : `https://${rawLink}`;
-          window.open(mapLink, '_blank', 'noopener');
+          // Mobile xử lý redirect/app link ổn định hơn khi điều hướng trực tiếp
+          window.location.href = mapLink;
         } else {
           // Link trống hoặc sai định dạng: tìm theo tên quán
-          window.open(`https://www.google.com/maps/search/${encodeURIComponent(restaurant.name)}`, '_blank', 'noopener');
+          window.location.href = `https://www.google.com/maps/search/${encodeURIComponent(restaurant.name)}`;
         }
       } else {
         searchNearby();
@@ -638,7 +639,7 @@
 
     function searchNearby() {
       const chosenDish = items[selectedDishIndex];
-      window.open(`https://www.google.com/maps/search/${encodeURIComponent(chosenDish.name + ' gần đây')}`, '_blank');
+      window.location.href = `https://www.google.com/maps/search/${encodeURIComponent(chosenDish.name + ' gần đây')}`;
     }
 
     function closeModal() {
