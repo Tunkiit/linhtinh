@@ -11,10 +11,10 @@
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Montserrat:wght@700;800;900&display=swap');
     body {
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(135deg, #0f2027 0%, #203a43 25%, #2c5364 50%, #0ba360 75%, #3cba92 100%);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
-      color: #ffffff;
+      background: linear-gradient(135deg, #e8fff7 0%, #d8f7ec 45%, #b9ead6 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 18s ease infinite;
+      color: #12352d;
       min-height: 100vh;
     }
     @keyframes gradientShift {
@@ -23,11 +23,17 @@
       100% { background-position: 0% 50%; }
     }
     .glass-card {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      box-shadow: 0 12px 32px rgba(16, 100, 75, 0.12);
     }
+    .text-muted { color: #52736a !important; }
+    .text-accent { color: #047857 !important; }
+    .glass-card .text-white:not(button):not(a) { color: #163d33 !important; }
+    .glass-card .text-\\[\\#71767b\\] { color: #52736a !important; }
+    .glass-card .border-\\[\\#2f3336\\] { border-color: #b8d8ca !important; }
+    .glass-card .hover\\:bg-\\[\\#181a1d\\]:hover { background: #effcf6 !important; }
     .pointer {
       width: 0;
       height: 0;
