@@ -401,11 +401,12 @@
       ctx.strokeStyle = '#1d9bf0';
       ctx.stroke();
 
-      ctx.fillStyle = '#1d9bf0';
-      ctx.font = '18px FontAwesome';
+      // Center label: stable across browsers (emoji can render off-center)
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '700 13px Quicksand';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText('🍽️', radius, radius);
+      ctx.fillText('QUAY', radius, radius);
     }
 
     function renderList() {
@@ -621,9 +622,9 @@
       if (selectedRestIndex !== '' && chosenDish.restaurants && chosenDish.restaurants[selectedRestIndex]) {
         const restaurant = chosenDish.restaurants[selectedRestIndex];
         const rawLink = (restaurant.link || '').trim();
-        const isMapLink = /^(https?:\/\/)?(www\.)?(google\.com\/maps|maps\.google\.com|maps\.app\.goo\.gl|goo\.gl\/maps)/i.test(rawLink);
+        const isUrl = rawLink.includes('.') && !rawLink.includes(' '); // supports maps.app.goo.gl
 
-        if (isMapLink) {
+        if (isUrl) {
           const mapLink = /^https?:\/\//i.test(rawLink) ? rawLink : `https://${rawLink}`;
           window.open(mapLink, '_blank', 'noopener');
         } else {
@@ -649,7 +650,7 @@
     function openHistoryModal() {
       const container = document.getElementById('historyContainer');
       container.innerHTML = history.length
-        ? history.map(entry => `<div class="flex justify-between gap-3 border border-white/20 rounded-lg px-3 py-2"><span class="text-white">${entry.name}</span><span class="text-xs text-white/60">${new Date(entry.date).toLocaleDateString('vi-VN')}</span></div>`).join('')
+        ? history.map(entry => `<div class="flex justify-between gap-3 border border-white/20 rounded-lg px-3 py-2"><span class="text-white">${entry.name}</span><span class="text-xs text-white/60">${new Date(entry.date).toLocaleString('vi-VN', { dateStyle: 'short', timeStyle: 'short' })}</span></div>`).join('')
         : '<p class="text-center text-white/60 py-6">Chưa có món nào được quay.</p>';
       document.getElementById('historyModal').classList.remove('hidden');
       document.getElementById('historyModal').classList.add('flex');
