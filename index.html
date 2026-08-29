@@ -325,8 +325,6 @@
         { name: "Bún chả cá Cô Lan", link: "https://www.google.com/maps/search/?api=1&query=Bún+chả+cá+Cô+Lan+424+Hùng+Vương+Đà+Nẵng" }
       ] },
       { name: "Cao Lầu", restaurants: [] },
-      { name: "Bánh Cuốn", restaurants: [] },
-      { name: "Bánh Mì", restaurants: [] },
       { name: "Cơm Gà", restaurants: [] },
       { name: "Cơm Chiên", restaurants: [] },
       { name: "Cháo Gà", restaurants: [] },
@@ -362,6 +360,8 @@
         { name: "Bún mắm Vân", link: "https://www.google.com/maps/search/?api=1&query=Bún+mắm+Vân+23+Trần+Kế+Xương+Đà+Nẵng" }
       ] },
       { name: "Các Loại Bánh", restaurants: [
+        { name: "Bánh Cuốn", link: "https://www.google.com/maps/search/?api=1&query=Bánh+cuốn+Đà+Nẵng" },
+        { name: "Bánh Mì", link: "https://www.google.com/maps/search/?api=1&query=Bánh+mì+Đà+Nẵng" },
         { name: "Bánh ướt heo quay Bà Sửu", link: "https://www.google.com/maps/search/?api=1&query=Bánh+ướt+heo+quay+Bà+Sửu+44+Trần+Bạch+Đằng+Đà+Nẵng" },
         { name: "Bèo nậm lọc Bà Phụng", link: "https://www.google.com/maps/search/?api=1&query=Bèo+nậm+lọc+Bà+Phụng+30+Bàu+Hạc+5+Đà+Nẵng" },
         { name: "Bánh bèo Lò Củi", link: "https://www.google.com/maps/search/?api=1&query=Bánh+bèo+Lò+Củi+14+Cồn+Dầu+6+Đà+Nẵng" },
@@ -406,7 +406,7 @@
     let items = JSON.parse(JSON.stringify(defaultItems));
     if (Array.isArray(savedItems)) {
       savedItems.forEach(saved => {
-        const alias = { 'Bún Bò Huế': 'Bún Bò', 'Ốc & Ăn Vặt': 'Ăn Vặt', 'Bún Chả': 'Bún Chả / Bún Chả Cá', 'Bún Chả Cá': 'Bún Chả / Bún Chả Cá' };
+        const alias = { 'Bún Bò Huế': 'Bún Bò', 'Ốc & Ăn Vặt': 'Ăn Vặt', 'Bún Chả': 'Bún Chả / Bún Chả Cá', 'Bún Chả Cá': 'Bún Chả / Bún Chả Cá', 'Bánh Cuốn': 'Các Loại Bánh', 'Bánh Mì': 'Các Loại Bánh' };
         const savedName = alias[saved.name] || saved.name;
         const current = items.find(item => item.name === savedName);
         if (!current) {
