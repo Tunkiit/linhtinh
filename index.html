@@ -158,6 +158,13 @@
       <button onclick="openHistoryModal()" class="mt-3 px-6 py-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold text-sm rounded-full transition-all flex items-center justify-center gap-2">
         <i class="fa-solid fa-clock-rotate-left"></i> Lịch sử (<span id="historyCount">0</span>)
       </button>
+
+      <!-- No-repeat toggle -->
+      <label class="mt-2 flex items-center gap-2 text-xs text-[#71767b] cursor-pointer select-none">
+        <input type="checkbox" id="noRepeatToggle" class="accent-[#0ea5e9] w-4 h-4 cursor-pointer" onchange="toggleNoRepeat()">
+        <span><i class="fa-solid fa-rotate-left mr-1"></i> Không lặp 3 ngày</span>
+        <span id="noRepeatInfo" class="text-[#0ea5e9] font-semibold hidden"></span>
+      </label>
     </section>
 
     <!-- Bottom: Menu List & Customization -->
@@ -673,6 +680,27 @@
     }
     renderBgmIcon();
 
+    // Không lặp món trong 3 ngày (lưu trạng thái)
+    const noRepeatToggle = document.getElementById('noRepeatToggle');
+    const noRepeatInfo = document.getElementById('noRepeatInfo');
+    function toggleNoRepeat() {
+      localStorage.setItem('no_repeat', noRepeatToggle.checked ? '1' : '0');
+      updateNoRepeatInfo();
+    }
+    function updateNoRepeatInfo() {
+      if (noRepeatToggle.checked) {
+        const cutoff = Date.now() - 3 * 24 * 60 * 60 * 1000;
+        const recent = new Set(history.filter(h => new Date(h.date).getTime() >= cutoff).map(h => h.name));
+        const fresh = items.filter(item => !recent.has(item.name)).length;
+        noRepeatInfo.textContent = fresh === items.length ? `✓ ${items.length} món khác nhau` : `✓ còn ${fresh}/${items.length} món`;
+        noRepeatInfo.classList.remove('hidden');
+      } else {
+        noRepeatInfo.classList.add('hidden');
+      }
+    }
+    noRepeatToggle.checked = localStorage.getItem('no_repeat') === '1';
+    updateNoRepeatInfo();
+
     function spinWheel() {
       if (isSpinning || items.length === 0) return;
       startBgm(); // có gesture người dùng -> bật được nhạc nếu đang bật
@@ -682,7 +710,31 @@
       spinIcon.classList.add('animate-spin');
 
       const spinRounds = 5 + Math.random() * 3;
-      const targetAngle = currentAngle + spinRounds * 2 * Math.PI;
+
+      // Chọn target index: ưu tiên món chưa ăn trong 3 ngày (nếu bật)
+      let targetIndex;
+      if (document.getElementById('noRepeatToggle').checked) {
+        const cutoff = Date.now() - 3 * 24 * 60 * 60 * 1000;
+        const recent = new Set(history.filter(h => new Date(h.date).getTime() >= cutoff).map(h => h.name));
+        const fresh = items.map((item, idx) => ({ item, idx })).filter(({ item }) => !recent.has(item.name));
+        if (fresh.length > 0) {
+          targetIndex = fresh[Math.floor(Math.random() * fresh.length)].idx;
+        }
+      }
+      if (targetIndex === undefined) {
+        targetIndex = Math.floor(Math.random() * items.length);
+      }
+
+      const numItems = items.length;
+      const arc = (2 * Math.PI) / numItems;
+      // showResult() tính: normalizedAngle ≡ 1.5π + i*arc → món i trúng (index 0 nằm góc 1.5π = 12h).
+      // Muốn dừng đúng món targetIndex: cần normalizedAngle = 1.5π - targetIndex*arc (quay ngược kim đồng hồ).
+      const desiredStopAngle = 1.5 * Math.PI - targetIndex * arc;
+      // currentAngle sau khi quay thêm phải ≡ desiredStopAngle (mod 2π)
+      const fullTurns = spinRounds * 2 * Math.PI;
+      let extra = desiredStopAngle - currentAngle;
+      extra = ((extra % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+      const finalAngle = currentAngle + fullTurns + extra;
 
       const startTime = performance.now();
       const duration = 4000;
@@ -692,7 +744,7 @@
         const progress = Math.min(elapsed / duration, 1);
         
         const easeOut = 1 - Math.pow(1 - progress, 3);
-        currentAngle = targetAngle * easeOut;
+        currentAngle = finalAngle * easeOut;
 
         drawWheel();
 
