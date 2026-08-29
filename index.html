@@ -11,10 +11,8 @@
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Montserrat:wght@700;800;900&display=swap');
     body {
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(135deg, #e8fff7 0%, #d8f7ec 45%, #b9ead6 100%);
-      background-size: 200% 200%;
-      animation: gradientShift 18s ease infinite;
-      color: #12352d;
+      background: #000000;
+      color: #e7e9ea;
       min-height: 100vh;
     }
     @keyframes gradientShift {
@@ -23,17 +21,9 @@
       100% { background-position: 0% 50%; }
     }
     .glass-card {
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(16, 185, 129, 0.2);
-      box-shadow: 0 12px 32px rgba(16, 100, 75, 0.12);
+      background: #16181c;
+      border: 1px solid #2f3336;
     }
-    .text-muted { color: #52736a !important; }
-    .text-accent { color: #047857 !important; }
-    .glass-card .text-white:not(button):not(a) { color: #163d33 !important; }
-    .glass-card .text-\\[\\#71767b\\] { color: #52736a !important; }
-    .glass-card .border-\\[\\#2f3336\\] { border-color: #b8d8ca !important; }
-    .glass-card .hover\\:bg-\\[\\#181a1d\\]:hover { background: #effcf6 !important; }
     .pointer {
       width: 0;
       height: 0;
@@ -129,13 +119,13 @@
 
   <!-- Header -->
   <header class="text-center max-w-md w-full mb-4">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 border border-white/30 text-white text-xs font-semibold mb-2 backdrop-blur-sm">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1d9bf0]/10 border border-[#1d9bf0]/30 text-[#1d9bf0] text-xs font-semibold mb-2">
       <i class="fa-solid fa-utensils"></i> Giải quyết nỗi lo "Tối nay ăn gì?"
     </div>
-    <h1 class="text-4xl font-extrabold text-white drop-shadow-lg">
+    <h1 class="text-4xl font-extrabold text-white">
       Hôm Nay Ăn Gì?
     </h1>
-    <p class="text-white/90 text-sm mt-1 font-medium drop-shadow">Bấm quay ➔ Trúng món ➔ Đi ăn thôi!</p>
+    <p class="text-[#71767b] text-sm mt-1 font-medium">Bấm quay ➔ Trúng món ➔ Đi ăn thôi!</p>
   </header>
 
   <!-- Main Container -->
