@@ -293,11 +293,8 @@
       { name: "Mì Cay Đồ Hàn", restaurants: [] },
       { name: "Cơm Bình Dân", restaurants: [] },
       { name: "Hủ Tiếu / Bánh Canh", restaurants: [] },
-      { name: "Bánh Xèo", restaurants: [] },
-      { name: "Ốc & Ăn Vặt", restaurants: [] },
       { name: "Bún Chả", restaurants: [] },
       { name: "Bún Riêu", restaurants: [] },
-      { name: "Mì Quảng", restaurants: [] },
       { name: "Cao Lầu", restaurants: [] },
       { name: "Bánh Cuốn", restaurants: [] },
       { name: "Bánh Mì", restaurants: [] },
@@ -374,7 +371,25 @@
       ] }
     ];
 
-    let items = JSON.parse(localStorage.getItem('food_items_v2')) || JSON.parse(JSON.stringify(defaultItems));
+    const savedItems = JSON.parse(localStorage.getItem('food_items_v2'));
+    // Merge dữ liệu mặc định mới với dữ liệu đã lưu trên thiết bị.
+    // Giữ quán người dùng thêm, đồng thời bổ sung quán mặc định mới.
+    let items = JSON.parse(JSON.stringify(defaultItems));
+    if (Array.isArray(savedItems)) {
+      savedItems.forEach(saved => {
+        const current = items.find(item => item.name === saved.name);
+        if (!current) {
+          items.push(saved);
+          return;
+        }
+        const savedRestaurants = Array.isArray(saved.restaurants) ? saved.restaurants : [];
+        const known = new Set(current.restaurants.map(rest => `${rest.name}|${rest.link || ''}`));
+        savedRestaurants.forEach(rest => {
+          const key = `${rest.name}|${rest.link || ''}`;
+          if (!known.has(key)) current.restaurants.push(rest);
+        });
+      });
+    }
     let currentDishIndex = -1;
     let selectedDishIndex = -1;
     let history = JSON.parse(localStorage.getItem('food_history')) || [];
