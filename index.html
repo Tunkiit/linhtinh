@@ -59,6 +59,28 @@
       transform: translateY(-2px);
       box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
     }
+    .form-input {
+      background: rgba(6, 22, 24, 0.9) !important;
+      border: 1px solid rgba(167, 243, 208, 0.45) !important;
+      color: #ffffff !important;
+      caret-color: #6ee7b7;
+    }
+    .form-input::placeholder { color: rgba(209, 250, 229, 0.6); }
+    .form-input:focus {
+      border-color: #6ee7b7 !important;
+      box-shadow: 0 0 0 3px rgba(110, 231, 183, 0.2);
+      outline: none;
+    }
+    .form-select {
+      background-color: #061618 !important;
+      color: #ffffff !important;
+      border-color: rgba(167, 243, 208, 0.45) !important;
+    }
+    .form-select:focus {
+      border-color: #6ee7b7 !important;
+      box-shadow: 0 0 0 3px rgba(110, 231, 183, 0.2);
+      outline: none;
+    }
     
     /* Mobile optimizations */
     @media (max-width: 768px) {
@@ -124,7 +146,7 @@
 
         <!-- Add Input -->
         <div class="flex flex-col sm:flex-row gap-3 mb-4">
-          <input type="text" id="newItemInput" placeholder="Thêm món bạn thích..." class="flex-1 bg-transparent border border-[#2f3336] rounded-lg px-4 py-3 text-sm text-white placeholder-[#71767b] focus:outline-none focus:border-[#1d9bf0] transition-all">
+          <input type="text" id="newItemInput" placeholder="Thêm món bạn thích..." class="form-input flex-1 rounded-lg px-4 py-3 text-sm transition-all">
           <button onclick="addItem()" class="x-button text-white font-bold px-6 py-3 rounded-lg transition-all text-sm flex items-center justify-center gap-2 min-h-[44px]">
             <i class="fa-solid fa-plus"></i> Thêm
           </button>
@@ -157,7 +179,7 @@
       <!-- Restaurant Selection -->
       <div id="restaurantSelection" class="mb-6 hidden">
         <p class="text-[#71767b] text-sm mb-3">Chọn quán bạn muốn đi:</p>
-        <select id="restaurantSelect" class="w-full bg-[#16181c] border border-[#2f3336] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#1d9bf0] transition-all mb-3">
+        <select id="restaurantSelect" class="form-select w-full border rounded-lg px-4 py-3 transition-all mb-3">
           <option value="">-- Chọn quán --</option>
         </select>
       </div>
@@ -186,12 +208,12 @@
       <div class="space-y-4">
         <div>
           <label class="text-sm text-[#71767b] mb-2 block">Tên quán:</label>
-          <input type="text" id="restaurantNameInput" placeholder="VD: Cơm Tấm Bà Chiểu" class="w-full bg-transparent border border-[#2f3336] rounded-lg px-4 py-3 text-sm text-white placeholder-[#71767b] focus:outline-none focus:border-[#1d9bf0] transition-all">
+          <input type="text" id="restaurantNameInput" placeholder="VD: Cơm Tấm Bà Chiểu" class="form-input w-full rounded-lg px-4 py-3 text-sm transition-all">
         </div>
         
         <div>
           <label class="text-sm text-[#71767b] mb-2 block">Link Google Maps (tùy chọn):</label>
-          <input type="text" id="restaurantLinkInput" placeholder="https://maps.app.goo.gl/..." class="w-full bg-transparent border border-[#2f3336] rounded-lg px-4 py-3 text-sm text-white placeholder-[#71767b] focus:outline-none focus:border-[#1d9bf0] transition-all">
+          <input type="text" id="restaurantLinkInput" placeholder="https://maps.app.goo.gl/..." class="form-input w-full rounded-lg px-4 py-3 text-sm transition-all">
           <p class="text-xs text-[#71767b] mt-1">💡 Để trống nếu chưa có link</p>
         </div>
       </div>
