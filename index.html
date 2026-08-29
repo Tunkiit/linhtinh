@@ -291,11 +291,29 @@
   <script>
     const defaultItems = [
       { name: "Cơm Tấm", restaurants: [] },
-      { name: "Bún Đậu Mắm Tôm", restaurants: [] },
-      { name: "Lẩu", restaurants: [] },
-      { name: "Nướng", restaurants: [] },
-      { name: "Phở Bò / Gà", restaurants: [] },
-      { name: "Bún Bò Huế", restaurants: [] },
+      { name: "Bún Đậu Mắm Tôm", restaurants: [
+        { name: "Bún đậu Gia Di", link: "https://www.google.com/maps/search/?api=1&query=Bún+đậu+Gia+Di+302+Đường+2+Tháng+9+Đà+Nẵng" },
+        { name: "Bún đậu Xưa", link: "https://www.google.com/maps/search/?api=1&query=Bún+đậu+Xưa+87+Tản+Đà+Đà+Nẵng" },
+        { name: "Bún đậu Gánh", link: "https://www.google.com/maps/search/?api=1&query=Bún+đậu+Gánh+202+Phan+Đăng+Lưu+Đà+Nẵng" }
+      ] },
+      { name: "Lẩu", restaurants: [
+        { name: "Lẩu bò Triều Châu", link: "https://www.google.com/maps/search/?api=1&query=Lẩu+bò+Triều+Châu+24+Pasteur+Đà+Nẵng" },
+        { name: "Lẩu cua Ông Định", link: "https://www.google.com/maps/search/?api=1&query=Lẩu+cua+Ông+Định+170+Tố+Hữu+Đà+Nẵng" },
+        { name: "Lẩu gà lá é", link: "https://www.google.com/maps/search/?api=1&query=Lẩu+gà+lá+é+210+Phan+Đăng+Lưu+Đà+Nẵng" },
+        { name: "Lẩu bò Vũ Lộc", link: "https://www.google.com/maps/search/?api=1&query=Lẩu+bò+Vũ+Lộc+269+Đống+Đa+Đà+Nẵng" },
+        { name: "Lẩu bò Gia Bảo", link: "https://www.google.com/maps/search/?api=1&query=Lẩu+bò+Gia+Bảo+196+Hàn+Thuyên+Đà+Nẵng" }
+      ] },
+      { name: "Nướng", restaurants: [
+        { name: "Yen Nướng", link: "https://www.google.com/maps/search/?api=1&query=Yen+Nướng+38+Trần+Quốc+Toản+Đà+Nẵng" },
+        { name: "Veteran Nướng", link: "https://www.google.com/maps/search/?api=1&query=Veteran+Nướng+26+Phạm+Văn+Đồng+Đà+Nẵng" }
+      ] },
+      { name: "Phở", restaurants: [
+        { name: "Phở Bắc Quốc Dân", link: "https://www.google.com/maps/search/?api=1&query=Phở+Bắc+Quốc+Dân+101+Lê+Lợi+Đà+Nẵng" },
+        { name: "Phở Hà Thành", link: "https://www.google.com/maps/search/?api=1&query=Phở+Hà+Thành+52+Phan+Đăng+Lưu+Đà+Nẵng" }
+      ] },
+      { name: "Bún Bò", restaurants: [
+        { name: "Bún bò Bà Rơi", link: "https://www.google.com/maps/search/?api=1&query=Bún+bò+Bà+Rơi+5+Phan+Thanh+Tài+Đà+Nẵng" }
+      ] },
       { name: "Gà Rán", restaurants: [] },
       { name: "Pizza", restaurants: [] },
       { name: "Mì Cay", restaurants: [] },
@@ -318,7 +336,10 @@
       { name: "Hamburger", restaurants: [] },
       { name: "Gỏi Cuốn", restaurants: [] },
       { name: "Lẩu Thái", restaurants: [] },
-      { name: "Ốc & Ăn Vặt", restaurants: [
+      { name: "Ốc", restaurants: [
+        { name: "Ốc Xinh Sài Gòn", link: "https://www.google.com/maps/search/?api=1&query=Ốc+Xinh+Sài+Gòn+230+Lê+Thanh+Nghị+Đà+Nẵng" }
+      ] },
+      { name: "Ăn Vặt", restaurants: [
         { name: "Chợ Bắc Mỹ An - Kem bơ cô Vân", link: "https://www.google.com/maps/search/?api=1&query=Chợ+Bắc+Mỹ+An+Kem+bơ+cô+Vân+Đà+Nẵng" },
         { name: "Chợ Cồn", link: "https://www.google.com/maps/search/?api=1&query=Chợ+Cồn+Đà+Nẵng" },
         { name: "Le Bordeaux Factory", link: "https://www.google.com/maps/search/?api=1&query=Le+Bordeaux+Factory+Đà+Nẵng" },
@@ -335,9 +356,6 @@
       ] },
       { name: "Bún Riêu", restaurants: [
         { name: "Bún riêu Đào", link: "https://www.google.com/maps/search/?api=1&query=Bún+riêu+Đào+K10+Yên+Bái+Đà+Nẵng" }
-      ] },
-      { name: "Bún Bò", restaurants: [
-        { name: "Bún bò Bà Rơi", link: "https://www.google.com/maps/search/?api=1&query=Bún+bò+Bà+Rơi+5+Phan+Thanh+Tài+Đà+Nẵng" }
       ] },
       { name: "Bún Mắm", restaurants: [
         { name: "Bún mắm Vân", link: "https://www.google.com/maps/search/?api=1&query=Bún+mắm+Vân+23+Trần+Kế+Xương+Đà+Nẵng" }
@@ -387,7 +405,9 @@
     let items = JSON.parse(JSON.stringify(defaultItems));
     if (Array.isArray(savedItems)) {
       savedItems.forEach(saved => {
-        const current = items.find(item => item.name === saved.name);
+        const alias = { 'Bún Bò Huế': 'Bún Bò', 'Ốc & Ăn Vặt': 'Ăn Vặt' };
+        const savedName = alias[saved.name] || saved.name;
+        const current = items.find(item => item.name === savedName);
         if (!current) {
           items.push(saved);
           return;
